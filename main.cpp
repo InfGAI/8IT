@@ -1,3 +1,4 @@
+// Online IDE - Code Editor, Compiler, Interpreter
 #include <iostream>
 
 using namespace std;
@@ -12,15 +13,18 @@ int main() {
         } else {
             sum += y;
         }
-        if (x % 2 == 1 && x > pare1) {
+        if (x % 2 == 1 && x > pare1 && x<y) {
             pare1 = x;
             pare2 = y;
-        } else if (y % 2 == 1 && y > pare1) {
+            cout << pare1;
+        } else if (y % 2 == 1 && y > pare1 && y<x) {
             pare1 = y;
             pare2 = x;
+            cout << pare1;
         }
         cin >> x >> y;
     }
+   // cout << sum;
     if (sum % 2 == 1) {
         cout << sum;
     } else {
