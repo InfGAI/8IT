@@ -1,29 +1,39 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 int main()
 {
-    int a, b, s, m, k = 0;
-    cin >> a >> b >> s >> m;
-    while (a > b)
+    string s, word, mem;
+    vector <int> a;
+    int k = 0;
+    getline(cin, s);
+    s=s+' ';
+    for (char sym: s)
     {
-        if (a % m == 0)
+        if (sym == ' ')
         {
-            a /= m;
             k++;
         }
-        else
-        {
-            a -= s;
-            k++;
-        }
+       if (sym != ' ')
+       {
+           word += sym;
+       }
+       else
+       {
+           if (word.size() > mem.size())
+           {
+               mem = word;
+           }
+           a.push_back(word.size());
+           word = "";
+       }
+
     }
-    if (k == 0)
+    for (int i = 0; i < a.size(); i++)
     {
-        cout << "НЕВОЗМОЖНО";
+        cout << "Количество букв в " << i + 1 << " слове: " << a[i] << "\n";
     }
-    else
-    {
-        cout << k;
-    }
+    cout << "Количество слов: " << k << "\n";
+    cout << "Одно из самых больших слов: " << mem;
     return 0;
 }
